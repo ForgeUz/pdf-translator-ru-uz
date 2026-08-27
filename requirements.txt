@@ -1,0 +1,22 @@
+# Core PDF parsing + rendering (AGPL v3 — see LICENSE / EULA.md)
+pymupdf>=1.24
+
+# NLLB-200 translation model (HuggingFace transformers backend)
+transformers>=4.40
+
+# CTranslate2 backend (3-4x CPU speedup, optional)
+ctranslate2>=4.0
+
+# fasttext Language ID detection (optional, improves quality)
+fasttext>=0.9.2
+
+# Verification & monitoring dependencies
+psutil>=5.9
+sacrebleu>=2.4
+accelerate>=0.30
+
+# Testing
+pytest
+
+# Convert NLLB to CTranslate2 format (one-time, optional):
+#   ct2-transformers-converter --model facebook/nllb-200-distilled-600M --output_dir ./nllb_ct2_model

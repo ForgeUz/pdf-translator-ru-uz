@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf-translator-ru-uz"
+version = "1.0.0"
+description = "Offline, CPU-only, in-place PDF translator for Uzbek <-> Russian using NLLB-200."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "AGPL-3.0-or-later" }
+authors = [
+    { name = "ForgeUz" },
+]
+keywords = [
+    "pdf", "translation", "uzbek", "russian", "nllb", "offline",
+    "pymupdf", "cpu", "in-place",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "pymupdf>=1.24",
+    "transformers>=4.40",
+    "ctranslate2>=4.0",
+    "fasttext>=0.9.2",
+    "psutil>=5.9",
+    "sacrebleu>=2.4",
+    "accelerate>=0.30",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+]
+
+[project.scripts]
+pdf-translator-ru-uz = "pdf_translator_ru_uz.pipeline:main"
+
+[tool.setuptools]
+packages = ["pdf_translator_ru_uz"]
+
+[tool.setuptools.package-data]
+pdf_translator_ru_uz = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
